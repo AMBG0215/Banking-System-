@@ -3,6 +3,7 @@
 
 import java.sql.SQLOutput;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -49,15 +50,13 @@ public class Main {
 //        System.out.println(account1.getBalance());
 //        System.out.println(account2.getBalance());
 
-
-
-        BankAccount accountOne = new BankAccount("02", "Anna", 700, true);
-        BankAccount accountTwo = new BankAccount("03", "Mika", 800, true);
-
-        BankSystem.addAccount(accountOne);
-        BankSystem.addAccount(accountTwo);
-
-        BankSystem.showAccounts();
+//        BankAccount accountOne = new BankAccount("02", "Anna", 700, true);
+//        BankAccount accountTwo = new BankAccount("03", "Mika", 800, true);
+//
+//        BankSystem.addAccount(accountOne);
+//        BankSystem.addAccount(accountTwo);
+//
+//        BankSystem.showAccounts();
 
 //        BankAccount result = BankSystem.findAccounts("02");
 //        System.out.println(result.getName());
@@ -74,6 +73,53 @@ public class Main {
 //
 //        BankSystem.transfer("01", "02", 200);
 //        BankSystem.showAccounts();
+
+        boolean isRunning = true;
+
+        while (isRunning) {
+
+            System.out.println(
+                    "1. Add Account" + "\n" +
+                    "2. Show Accounts" + "\n" +
+                    "3. Find Account" + "\n" +
+                    "4. Deposit" + "\n" +
+                    "5. Withdraw" + "\n" +
+                    "6. Transfer" + "\n" +
+                    "7. Remove Account" + "\n" +
+                    "8. Show Account" + "\n" +
+                    "9. Exit"
+            );
+
+
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Enter your choice: ");
+            int choice = scanner.nextInt();
+
+
+            switch (choice) {
+                case 1:
+                    System.out.println("Enter account number: ");
+                    String accountNumber = scanner.nextLine();
+                    System.out.println("Enter name: ");
+                    String name = scanner.nextLine();
+                    System.out.println("Enter amount: ");
+                    float balance = scanner.nextFloat();
+
+                   BankAccount account = new BankAccount(accountNumber, name, balance, true);
+                case 2:
+                    BankSystem.showAccounts();
+
+                    break;
+                case 9:
+                    isRunning = false;
+                    break;
+                default:
+                    System.out.println("Invalid choice");
+            }
+        }
+
+
+
 
 
 
