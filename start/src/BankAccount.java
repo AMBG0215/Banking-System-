@@ -9,8 +9,8 @@ public class BankAccount {
 
     private String number;
     private String name;
-    private float balance;
-    private boolean isActive;
+    private  float balance;
+    private  boolean isActive;
 
     BankAccount(String number, String name, float balance, boolean isActive) {
         this.number = number;
@@ -21,7 +21,7 @@ public class BankAccount {
         this.isActive = isActive;
     }
 
-    void deposit(int amount) {
+     void deposit(int amount) {
         if (isActive) {
             if (amount > 0) {
                 balance += amount;
@@ -33,7 +33,7 @@ public class BankAccount {
         }
     }
 
-    void withdraw(int amount) {
+     void withdraw(int amount) {
         if (isActive) {
             if (balance >= amount) {
                 balance -= amount;
@@ -60,7 +60,6 @@ public class BankAccount {
             if (this.balance >= amount) {
                 this.balance -= amount;
                 recipient.balance += amount;
-
                 System.out.println(this.getName() + " transferred " + amount + " to " + recipient.getName());
             } else {
                 System.out.println("Insufficient amount of money, cannot transfer");

@@ -50,21 +50,29 @@ public class Main {
 //        System.out.println(account2.getBalance());
 
 
-        BankAccount account1 = new BankAccount("01", "Mika", 1200, true);
-        BankAccount account2 = new BankAccount("02", "Anna", 600, true);
+        BankAccount accountOne = new BankAccount("02", "Anna", 700, true);
+        BankAccount accountTwo = new BankAccount("03", "Mika", 800, true);
 
-        BankSystem.addAccount(account1);
-        BankSystem.addAccount(account2);
+        BankSystem.addAccount(accountOne);
+        BankSystem.addAccount(accountTwo);
 
         BankSystem.showAccounts();
 
-        BankAccount result = BankSystem.findAccounts("02");
-        System.out.println(result.getName());
+//        BankAccount result = BankSystem.findAccounts("02");
+//        System.out.println(result.getName());
 
-        BankSystem.depositToAccount("01", 500);
+        BankSystem.depositToAccount("02", 500);
+        BankSystem.showAccounts();
+
+        BankSystem.removeAccount();
+        BankSystem.showAccounts();
 
 
-
+//        BankSystem.withdrawFromAccount("01", 800);
+//        BankSystem.showAccounts();
+//
+//        BankSystem.transfer("01", "02", 200);
+//        BankSystem.showAccounts();
 
 
 
