@@ -94,22 +94,37 @@ public class Main {
             Scanner scanner = new Scanner(System.in);
             System.out.println("Enter your choice: ");
             int choice = scanner.nextInt();
-
+            scanner.nextLine();
 
             switch (choice) {
                 case 1:
                     System.out.println("Enter account number: ");
                     String accountNumber = scanner.nextLine();
+
                     System.out.println("Enter name: ");
                     String name = scanner.nextLine();
+
                     System.out.println("Enter amount: ");
                     float balance = scanner.nextFloat();
+                    scanner.nextLine();
 
                    BankAccount account = new BankAccount(accountNumber, name, balance, true);
+                   BankSystem.addAccount(account);
+
+                   break;
+
                 case 2:
                     BankSystem.showAccounts();
 
                     break;
+
+                case 3:
+                    // Fix the logic here, not yet done. 
+                    System.out.println("Enter account number: ");
+                    String acctNumber = scanner.nextLine();
+
+                    break;
+
                 case 9:
                     isRunning = false;
                     break;

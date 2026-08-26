@@ -52,7 +52,12 @@ public class BankSystem {
     // Since the arraylist is private, create a method to access the accounts in the main. Since you added the account, output each. 
     static void showAccounts() {
         for (BankAccount listAccounts : accounts) {
-            System.out.println(listAccounts.getName() + " - " + listAccounts.getBalance() + " " + listAccounts.isActive());
+            System.out.println(
+                    "Account Number: " + listAccounts.getNumber() + "\n" +
+                    "Name: " + listAccounts.getName() + "\n" +
+                    "Balance: " + listAccounts.getBalance() + "\n" +
+                    "Active: " + listAccounts.isActive()
+                    );
 
         }
     }
