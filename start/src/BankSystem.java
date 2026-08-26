@@ -22,14 +22,31 @@ public class BankSystem {
     static void removeAccount(String accountNumber){
         BankAccount result = BankSystem.findAccounts(accountNumber);
 
-        if(result != null){
-
+        if (result != null){
+            accounts.remove(result);
+            System.out.println("Account is removed");
+        }else{
+            System.out.println("Account not found");
         }
 
     }
 
     // create a method to show only one account
+    static void displayAccount(String accountNumber){
+        BankAccount result = BankSystem.findAccounts(accountNumber);
+
+        if (result != null){
+            System.out.println("This is your account: " + result.getNumber() + " " + result.getName() + " " + result.getBalance());
+        }else{
+            System.out.println("Account not found");
+        }
+
+    }
+
     //prevent duplicate numbers in creating an object
+
+
+
 
 
     // Since the arraylist is private, create a method to access the accounts in the main. Since you added the account, output each. 

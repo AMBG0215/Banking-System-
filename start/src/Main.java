@@ -50,6 +50,7 @@ public class Main {
 //        System.out.println(account2.getBalance());
 
 
+
         BankAccount accountOne = new BankAccount("02", "Anna", 700, true);
         BankAccount accountTwo = new BankAccount("03", "Mika", 800, true);
 
@@ -61,11 +62,11 @@ public class Main {
 //        BankAccount result = BankSystem.findAccounts("02");
 //        System.out.println(result.getName());
 
-        BankSystem.depositToAccount("02", 500);
-        BankSystem.showAccounts();
+//        BankSystem.depositToAccount("02", 500);
+//        BankSystem.showAccounts();
 
-        BankSystem.removeAccount();
-        BankSystem.showAccounts();
+        BankSystem.displayAccount("01");
+
 
 
 //        BankSystem.withdrawFromAccount("01", 800);
