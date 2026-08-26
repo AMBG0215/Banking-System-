@@ -19,7 +19,7 @@ public class BankSystem {
 
 
     // Since the arraylist is private, create a method to access the accounts in the main. Since you added the account, output each. 
-    static BankAccount showAccounts() {
+    static void showAccounts() {
         for (BankAccount listAccounts : accounts) {
             System.out.println(listAccounts.getName() + " - " + listAccounts.getBalance());
 
@@ -27,6 +27,13 @@ public class BankSystem {
     }
 
 
+    static void depositToAccount(String accountNumber, float balance){
+            if (balance >= 500){
+                 ;
+            }
+
+
+    }
 
 
 }

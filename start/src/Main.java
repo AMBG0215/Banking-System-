@@ -1,6 +1,7 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 public class Main {
@@ -57,7 +58,10 @@ public class Main {
 
         BankSystem.showAccounts();
 
-        BankSystem.findAccounts("02");
+        BankAccount result = BankSystem.findAccounts("02");
+        System.out.println(result.getName());
+
+        BankSystem.depositToAccount("01", 500);
 
 
 
