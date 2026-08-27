@@ -43,11 +43,6 @@ public class BankSystem {
 
     }
 
-    //prevent duplicate numbers in creating an object
-
-
-
-
 
     // Since the arraylist is private, create a method to access the accounts in the main. Since you added the account, output each. 
     static void showAccounts() {
@@ -67,12 +62,11 @@ public class BankSystem {
         BankAccount result = BankSystem.findAccounts(accountNumber);
 
         if (result != null){
-             System.out.println("Account found");
+             System.out.println("Account found, " + amount + " deposited");
              result.deposit(amount);
         }else{
             System.out.println("Account not found");
         }
-
 
     }
 
@@ -80,7 +74,7 @@ public class BankSystem {
         BankAccount result = BankSystem.findAccounts(accountNumber);
 
         if (result!= null){
-            System.out.println("Account found");
+            System.out.println("Account found, " + amount + " withdraw");
             result.withdraw(amount);
         }else{
             System.out.println("Account not found");

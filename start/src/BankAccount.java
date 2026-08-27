@@ -6,7 +6,6 @@ public class BankAccount {
     // access or manipulate it. Instead, methods inside the class
     // control how the data is accessed or changed.
 
-
     private String number;
     private String name;
     private  float balance;
@@ -34,15 +33,15 @@ public class BankAccount {
     }
 
      void withdraw(int amount) {
-        if (isActive) {
-            if (balance >= amount) {
-                balance -= amount;
+            if (isActive) {
+                if (amount > 0 && balance >= amount) {
+                        balance -= amount;
+                } else {
+                    System.out.println("Cannot withdraw");
+                }
             } else {
-                System.out.println("Cannot withdraw");
+                System.out.println("Account not active");
             }
-        } else {
-            System.out.println("Account not active");
-        }
     }
 
 

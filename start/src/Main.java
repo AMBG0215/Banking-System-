@@ -64,9 +64,7 @@ public class Main {
 //        BankSystem.depositToAccount("02", 500);
 //        BankSystem.showAccounts();
 
-        BankSystem.displayAccount("01");
-
-
+//        BankSystem.displayAccount("01");
 
 //        BankSystem.withdrawFromAccount("01", 800);
 //        BankSystem.showAccounts();
@@ -101,15 +99,24 @@ public class Main {
                     System.out.println("Enter account number: ");
                     String accountNumber = scanner.nextLine();
 
-                    System.out.println("Enter name: ");
-                    String name = scanner.nextLine();
+                    BankAccount result1 = BankSystem.findAccounts(accountNumber);
 
-                    System.out.println("Enter amount: ");
-                    float balance = scanner.nextFloat();
-                    scanner.nextLine();
+                    if(result1 == null)
+                    {
+                        System.out.println("Enter name: ");
+                        String name = scanner.nextLine();
 
-                   BankAccount account = new BankAccount(accountNumber, name, balance, true);
-                   BankSystem.addAccount(account);
+                        System.out.println("Enter amount: ");
+                        float balance = scanner.nextFloat();
+                        scanner.nextLine();
+
+                        BankAccount account = new BankAccount(accountNumber, name, balance, true);
+                        BankSystem.addAccount(account);
+
+
+                    }else{
+                        System.out.println("Account number is already registered");
+                    }
 
                    break;
 
@@ -123,6 +130,69 @@ public class Main {
                     System.out.println("Enter account number: ");
                     String acctNumber = scanner.nextLine();
 
+                    BankAccount result2 = BankSystem.findAccounts(acctNumber);
+
+                    if (result2 != null){
+                        System.out.println(
+                                "Account Number: " + result2.getNumber() + "\n" +
+                                        "Name: " + result2.getName() + "\n" +
+                                        "Balance: " + result2.getBalance() + "\n" +
+                                        "Active: " + result2.isActive()
+                        );
+                    }else{
+                        System.out.println("Account not found");
+                    }
+
+                    break;
+
+                case 4:
+                    System.out.println("Enter account number: ");
+                    String acctNumber2 = scanner.nextLine();
+
+                    System.out.println("Enter amount: ");
+                    int amount1 = scanner.nextInt();
+                    scanner.nextLine();
+
+                    BankSystem.depositToAccount(acctNumber2, amount1);
+                    break;
+
+                case 5:
+                    System.out.println("Enter account number: ");
+                    String acctNumber3 = scanner.nextLine();
+
+                    System.out.println("Enter amount: ");
+                    int amount2 = scanner.nextInt();
+                    scanner.nextLine();
+
+                    BankSystem.withdrawFromAccount(acctNumber3, amount2);
+                    break;
+
+                case 6:
+                    System.out.println("Enter account number(sender): ");
+                    String senderNumber = scanner.nextLine();
+
+                    System.out.println("Enter account number(recipient): ");
+                    String recipientNumber = scanner.nextLine();
+
+                    System.out.println("Enter amount: ");
+                    int amount3 = scanner.nextInt();
+                    scanner.nextLine();
+
+                    BankSystem.transfer(senderNumber, recipientNumber, amount3);
+                    break;
+
+                case 7:
+                    System.out.println("Enter account number to remove: ");
+                    String removeAcc = scanner.nextLine();
+
+                    BankSystem.removeAccount(removeAcc);
+                    break;
+
+                case 8:
+                    System.out.println("Enter account number to display: ");
+                    String acctNumber4 = scanner.nextLine();
+
+                    BankSystem.displayAccount(acctNumber4);
                     break;
 
                 case 9:
