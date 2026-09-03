@@ -72,136 +72,148 @@ public class Main {
 //        BankSystem.transfer("01", "02", 200);
 //        BankSystem.showAccounts();
 
-        boolean isRunning = true;
 
-        while (isRunning) {
+        BankAccount account1 = new FilipinoAccount("0101", "Mika", 800, true);
+        account1.showCurrency();
+        account1.deposit(1);
+        account1.withdraw(500);
 
-            System.out.println(
-                    "1. Add Account" + "\n" +
-                    "2. Show Accounts" + "\n" +
-                    "3. Find Account" + "\n" +
-                    "4. Deposit" + "\n" +
-                    "5. Withdraw" + "\n" +
-                    "6. Transfer" + "\n" +
-                    "7. Remove Account" + "\n" +
-                    "8. Show Account" + "\n" +
-                    "9. Exit"
-            );
+        BankAccount account2 = new AmericanAccount("0102", "Anna", 900, true);
+        account2.showCurrency();
 
 
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("Enter your choice: ");
-            int choice = scanner.nextInt();
-            scanner.nextLine();
-
-            switch (choice) {
-                case 1:
-                    System.out.println("Enter account number: ");
-                    String accountNumber = scanner.nextLine();
-
-                    BankAccount result1 = BankSystem.findAccounts(accountNumber);
-
-                    if(result1 == null)
-                    {
-                        System.out.println("Enter name: ");
-                        String name = scanner.nextLine();
-
-                        System.out.println("Enter amount: ");
-                        float balance = scanner.nextFloat();
-                        scanner.nextLine();
-
-                        BankAccount account = new BankAccount(accountNumber, name, balance, true);
-                        BankSystem.addAccount(account);
 
 
-                    }else{
-                        System.out.println("Account number is already registered");
-                    }
-
-                   break;
-
-                case 2:
-                    BankSystem.showAccounts();
-
-                    break;
-
-                case 3:
-                    // Fix the logic here, not yet done. 
-                    System.out.println("Enter account number: ");
-                    String acctNumber = scanner.nextLine();
-
-                    BankAccount result2 = BankSystem.findAccounts(acctNumber);
-
-                    if (result2 != null){
-                        System.out.println(
-                                "Account Number: " + result2.getNumber() + "\n" +
-                                        "Name: " + result2.getName() + "\n" +
-                                        "Balance: " + result2.getBalance() + "\n" +
-                                        "Active: " + result2.isActive()
-                        );
-                    }else{
-                        System.out.println("Account not found");
-                    }
-
-                    break;
-
-                case 4:
-                    System.out.println("Enter account number: ");
-                    String acctNumber2 = scanner.nextLine();
-
-                    System.out.println("Enter amount: ");
-                    int amount1 = scanner.nextInt();
-                    scanner.nextLine();
-
-                    BankSystem.depositToAccount(acctNumber2, amount1);
-                    break;
-
-                case 5:
-                    System.out.println("Enter account number: ");
-                    String acctNumber3 = scanner.nextLine();
-
-                    System.out.println("Enter amount: ");
-                    int amount2 = scanner.nextInt();
-                    scanner.nextLine();
-
-                    BankSystem.withdrawFromAccount(acctNumber3, amount2);
-                    break;
-
-                case 6:
-                    System.out.println("Enter account number(sender): ");
-                    String senderNumber = scanner.nextLine();
-
-                    System.out.println("Enter account number(recipient): ");
-                    String recipientNumber = scanner.nextLine();
-
-                    System.out.println("Enter amount: ");
-                    int amount3 = scanner.nextInt();
-                    scanner.nextLine();
-
-                    BankSystem.transfer(senderNumber, recipientNumber, amount3);
-                    break;
-
-                case 7:
-                    System.out.println("Enter account number to remove: ");
-                    String removeAcc = scanner.nextLine();
-
-                    BankSystem.removeAccount(removeAcc);
-                    break;
-
-                case 8:
-                    System.out.println("Enter account number to display: ");
-                    String acctNumber4 = scanner.nextLine();
-
-                    BankSystem.displayAccount(acctNumber4);
-                    break;
-
-                case 9:
-                    isRunning = false;
-                    break;
-                default:
-                    System.out.println("Invalid choice");
-            }
-        }
+//        boolean isRunning = true;
+//
+//        while (isRunning) {
+//
+//            System.out.println(
+//                    "1. Add Account" + "\n" +
+//                    "2. Show Accounts" + "\n" +
+//                    "3. Find Account" + "\n" +
+//                    "4. Deposit" + "\n" +
+//                    "5. Withdraw" + "\n" +
+//                    "6. Transfer" + "\n" +
+//                    "7. Remove Account" + "\n" +
+//                    "8. Show Account" + "\n" +
+//                    "9. Exit"
+//            );
+//
+//
+//            Scanner scanner = new Scanner(System.in);
+//            System.out.println("Enter your choice: ");
+//            int choice = scanner.nextInt();
+//            scanner.nextLine();
+//
+//            switch (choice) {
+//                case 1:
+//                    System.out.println("Enter account number: ");
+//                    String accountNumber = scanner.nextLine();
+//
+//                    BankAccount result1 = BankSystem.findAccounts(accountNumber);
+//
+//                    if(result1 == null)
+//                    {
+//                        System.out.println("Enter name: ");
+//                        String name = scanner.nextLine();
+//
+//                        System.out.println("Enter amount: ");
+//                        float balance = scanner.nextFloat();
+//                        scanner.nextLine();
+//
+//                        BankAccount account = new BankAccount(accountNumber, name, balance, true);
+//                        BankSystem.addAccount(account);
+//
+//
+//                    }else{
+//                        System.out.println("Account number is already registered");
+//                    }
+//
+//                   break;
+//
+//                case 2:
+//                    BankSystem.showAccounts();
+//
+//                    break;
+//
+//                case 3:
+//                    // Fix the logic here, not yet done.
+//                    System.out.println("Enter account number: ");
+//                    String acctNumber = scanner.nextLine();
+//
+//                    BankAccount result2 = BankSystem.findAccounts(acctNumber);
+//
+//                    if (result2 != null){
+//                        System.out.println(
+//                                "Account Number: " + result2.getNumber() + "\n" +
+//                                        "Name: " + result2.getName() + "\n" +
+//                                        "Balance: " + result2.getBalance() + "\n" +
+//                                        "Active: " + result2.isActive()
+//                        );
+//                    }else{
+//                        System.out.println("Account not found");
+//                    }
+//
+//                    break;
+//
+//                case 4:
+//                    System.out.println("Enter account number: ");
+//                    String acctNumber2 = scanner.nextLine();
+//
+//                    System.out.println("Enter amount: ");
+//                    int amount1 = scanner.nextInt();
+//                    scanner.nextLine();
+//
+//                    BankSystem.depositToAccount(acctNumber2, amount1);
+//                    break;
+//
+//                case 5:
+//                    System.out.println("Enter account number: ");
+//                    String acctNumber3 = scanner.nextLine();
+//
+//                    System.out.println("Enter amount: ");
+//                    int amount2 = scanner.nextInt();
+//                    scanner.nextLine();
+//
+//                    BankSystem.withdrawFromAccount(acctNumber3, amount2);
+//                    break;
+//
+//                case 6:
+//                    System.out.println("Enter account number(sender): ");
+//                    String senderNumber = scanner.nextLine();
+//
+//                    System.out.println("Enter account number(recipient): ");
+//                    String recipientNumber = scanner.nextLine();
+//
+//                    System.out.println("Enter amount: ");
+//                    int amount3 = scanner.nextInt();
+//                    scanner.nextLine();
+//
+//                    BankSystem.transfer(senderNumber, recipientNumber, amount3);
+//                    break;
+//
+//                case 7:
+//                    System.out.println("Enter account number to remove: ");
+//                    String removeAcc = scanner.nextLine();
+//
+//                    BankSystem.removeAccount(removeAcc);
+//                    break;
+//
+//                case 8:
+//                    System.out.println("Enter account number to display: ");
+//                    String acctNumber4 = scanner.nextLine();
+//
+//                    BankSystem.displayAccount(acctNumber4);
+//                    break;
+//
+//                case 9:
+//                    isRunning = false;
+//                    break;
+//                default:
+//                    System.out.println("Invalid choice");
+//            }
+//        }
 
 
 

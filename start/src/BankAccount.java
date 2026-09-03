@@ -20,6 +20,10 @@ public class BankAccount {
         this.isActive = isActive;
     }
 
+    public void showCurrency(){
+        System.out.println("Default currency");
+    }
+
      void deposit(int amount) {
         if (isActive) {
             if (amount > 0) {
@@ -108,7 +112,6 @@ public class BankAccount {
     }
 
 }
-
 
 
 
