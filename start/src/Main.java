@@ -77,9 +77,12 @@ public class Main {
         account1.showCurrency();
         account1.deposit(1);
         account1.withdraw(500);
+        System.out.println(account1.getBalance());
+
 
         BankAccount account2 = new AmericanAccount("0102", "Anna", 900, true);
         account2.showCurrency();
+        account2.deposit(500);
 
 
 

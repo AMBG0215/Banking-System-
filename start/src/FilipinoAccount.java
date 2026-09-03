@@ -17,16 +17,21 @@ class FilipinoAccount extends BankAccount{
         @Override
 
         void deposit(int amount){
-            System.out.println("Depositing: PHP");
+            System.out.println("Depositing PHP " + amount);
             // Parent's original deposit method: call the original deposit() method from the parent class.
             super.deposit(amount);
         }
 
         @Override
         void withdraw(int amount){
-            System.out.println("Withdrawing: PHP");
+            // Child's additional behavior
+            System.out.println("Withdrawing PHP " + amount);
 
+            // run the parent's original deposit logic.
             super.withdraw(amount);
+
+            // Question: what's the purpose of running the parent if there's a child? The child class doesn't necessarily replace everything from the parent. It inherits and reuses common functionality.
+
         }
 
 

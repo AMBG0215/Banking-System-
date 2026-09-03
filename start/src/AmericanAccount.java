@@ -9,4 +9,11 @@ class AmericanAccount extends BankAccount{
             System.out.println("Currency: USD");
         }
 
+        @Override
+        void deposit(int amount){
+            System.out.println("Depositing USD: " + amount);
+
+            super.deposit(amount);
+        }
+
 }
