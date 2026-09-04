@@ -126,17 +126,17 @@ public class Main {
 
                         System.out.println(
                                 "Choose account type: " + "\n" +
-                                "1. Filipino Account" + "\n" +
-                                "2. American Account"
+                                "1. Savings Account" + "\n" +
+                                "2. Regular Account"
                         );
                         int accountType = scanner.nextInt();
                         scanner.nextLine();
 
                             if (accountType == 1){
-                                BankAccount account1 = new FilipinoAccount(accountNumber, name, balance, true);
+                                BankAccount account1 = new SavingsAccount(accountNumber, name, balance, true);
                                 BankSystem.addAccount(account1);
                             }else if (accountType == 2){
-                                BankAccount account2 = new AmericanAccount(accountNumber, name, balance, true);
+                                BankAccount account2 = new BankAccount(accountNumber, name, balance, true);
                                 BankSystem.addAccount(account2);
                             }else{
                                 System.out.println("Invalid number");
@@ -156,7 +156,6 @@ public class Main {
                     break;
 
                 case 3:
-                    // Fix the logic here, not yet done.
                     System.out.println("Enter account number: ");
                     String acctNumber = scanner.nextLine();
 
