@@ -16,4 +16,10 @@ class AmericanAccount extends BankAccount{
             super.deposit(amount);
         }
 
+        @Override
+        void withdraw(int amount){
+            System.out.println("Withdrawing USD: " + amount);
+
+            super.withdraw(amount);
+        }
 }
