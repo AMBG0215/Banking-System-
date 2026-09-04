@@ -28,6 +28,14 @@ class SavingsAccount extends BankAccount {
 
         }
 
+    @Override
+    public void showAccountType(){
+        System.out.println("Account Type: " + "Savings Account");
+    }
+
+
+
+
 
 }
 

@@ -53,7 +53,19 @@ public class BankSystem {
                     "Balance: " + listAccounts.getBalance() + "\n" +
                     "Active: " + listAccounts.isActive()
                     );
+        }
+    }
 
+    static void showAccountType(){
+        for (BankAccount listAccounts : accounts) {
+            System.out.println(
+                    "Account Number: " + listAccounts.getNumber() + "\n" +
+                            "Name: " + listAccounts.getName() + "\n" +
+                            "Balance: " + listAccounts.getBalance() + "\n" +
+                            "Active: " + listAccounts.isActive()
+            );
+
+            listAccounts.showAccountType();
         }
     }
 

@@ -99,7 +99,8 @@ public class Main {
                     "6. Transfer" + "\n" +
                     "7. Remove Account" + "\n" +
                     "8. Show Account" + "\n" +
-                    "9. Exit"
+                    "9. Show Account Type" + "\n" +
+                    "10. Exit"
             );
 
 
@@ -225,6 +226,10 @@ public class Main {
                     break;
 
                 case 9:
+                    BankSystem.showAccountType();
+                    break;
+
+                case 10:
                     isRunning = false;
                     break;
                 default:

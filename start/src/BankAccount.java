@@ -24,6 +24,10 @@ public class BankAccount {
         System.out.println("Default currency");
     }
 
+    public void showAccountType(){
+        System.out.println("Account Type: " + "Regular Account");
+    }
+
      void deposit(int amount) {
         if (isActive) {
             if (amount > 0) {
@@ -71,6 +75,8 @@ public class BankAccount {
             System.out.println("Account is inactive");
         }
     }
+
+
 
     // Getter: get/read data
     public String getNumber() {
