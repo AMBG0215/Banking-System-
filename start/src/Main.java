@@ -5,6 +5,7 @@ import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+// talks to the user
 public class Main {
     public static void main(String[] args) {
 
@@ -99,8 +100,7 @@ public class Main {
                     "6. Transfer" + "\n" +
                     "7. Remove Account" + "\n" +
                     "8. Show Account" + "\n" +
-                    "9. Show Account Type" + "\n" +
-                    "10. Exit"
+                    "9. Exit"
             );
 
 
@@ -225,11 +225,11 @@ public class Main {
                     BankSystem.displayAccount(acctNumber4);
                     break;
 
-                case 9:
-                    BankSystem.showAccountType();
-                    break;
+//                case 9:
+//                    BankSystem.showAccountType();
+//                    break;
 
-                case 10:
+                case 9:
                     isRunning = false;
                     break;
                 default:

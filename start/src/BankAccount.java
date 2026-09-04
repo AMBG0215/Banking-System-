@@ -1,6 +1,7 @@
 
 import java.util.ArrayList;
 
+// Describes ONE Bank account
 public class BankAccount {
     // Encapsulation: Keep the class's data private so outside code cannot directly
     // access or manipulate it. Instead, methods inside the class

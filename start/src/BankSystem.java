@@ -1,7 +1,9 @@
 import java.util.ArrayList;
 
+// Manages many bank accounts
 public class BankSystem {
 
+    // Arraylist stores Bank Account objects so, accounts = []
     private static ArrayList<BankAccount> accounts = new ArrayList<>();
     // Composition: one class has or uses objects from another class.
 
@@ -36,7 +38,14 @@ public class BankSystem {
         BankAccount result = BankSystem.findAccounts(accountNumber);
 
         if (result != null){
-            System.out.println("This is your account: " + result.getNumber() + " " + result.getName() + " " + result.getBalance());
+            System.out.println(
+                         "This is your account: " +
+                            result.getNumber() + " " +
+                            result.getName() + " " +
+                            result.getBalance()
+            );
+            result.showAccountType();
+
         }else{
             System.out.println("Account not found");
         }
@@ -53,6 +62,9 @@ public class BankSystem {
                     "Balance: " + listAccounts.getBalance() + "\n" +
                     "Active: " + listAccounts.isActive()
                     );
+
+            listAccounts.showAccountType();
+
         }
     }
 
@@ -65,7 +77,18 @@ public class BankSystem {
                             "Active: " + listAccounts.isActive()
             );
 
+            // Savings Account is a type of Bank Account so, BankAccount account = new SavingsAccount(...);
+            // This asks user's account object: "Show me your account type." So if new BankAccount() -> Regular; new SavingsAcc() -> Savings
+
             listAccounts.showAccountType();
+
+            // Reference type: BankAccount
+            // Actual object: SavingsAccount if new SavingsAcc()
+            // Then when you add it to the list: BankSystem.addAccount(account1); the actual SavingsAccount object is stored in accounts.
+            // Later: for (BankAccount listAccounts : accounts) Java gets the same object from the list.
+            // so when this runs: listAccounts.showAccountType();
+            // is this object a savings acc? yes
+
         }
     }
 
