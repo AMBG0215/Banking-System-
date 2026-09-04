@@ -72,7 +72,7 @@ public class Main {
 //        BankSystem.transfer("01", "02", 200);
 //        BankSystem.showAccounts();
 
-
+        // POLYMORPHISM: Both variables are declared as Bank Account, but they hold different objects then the same call showCurrency() but behaves differently depending on the actual object.
         BankAccount account1 = new FilipinoAccount("0101", "Mika", 800, true);
         account1.showCurrency();
         account1.deposit(1);

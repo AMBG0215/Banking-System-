@@ -1,6 +1,6 @@
 class FilipinoAccount extends BankAccount{
-        // Filipino Account inherits from Bank Account BUT IT DOESN'T INHERIT THE CONSTRUCTOR ONLY THE METHODS.
-
+        // INHERITANCE: Filipino Account inherits accessible fields and methods from Bank Account BUT IT DOESN'T INHERIT THE CONSTRUCTOR.
+        // Constructors are not inherited, which is why you create the FilipinoAccount constructor and use super(...).
         // That's why you still need to write the constructor: "Call the constructor of my parent class (BankAccount) and initialize the parent part using these values."
         public FilipinoAccount(String number, String name, float balance, boolean isActive){
             super(number, name, balance, isActive);
@@ -8,6 +8,8 @@ class FilipinoAccount extends BankAccount{
             // think of it as super(BankAccount(String number, String name, float balance, boolean isActive))
         }
 
+        // POLYMORPHISM: One thing can take many forms. The same method call can behave differently depending on the actual object.
+        // You have a parent void showCurrency() and different children showCurrency() from Filipino Account and American Account. The same method call produces different results.
         @Override
         // This method already exists in my parent class, and I want to replace its behavior in this child class.
         public void showCurrency() {
