@@ -1,7 +1,7 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 
-import java.sql.SQLOutput;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -100,7 +100,8 @@ public class Main {
                     "6. Transfer" + "\n" +
                     "7. Remove Account" + "\n" +
                     "8. Show Account" + "\n" +
-                    "9. Exit"
+                    "9. Find Account Name" + "\n" +
+                    "10. Exit"
             );
 
 
@@ -229,11 +230,14 @@ public class Main {
                     BankSystem.displayAccount(acctNumber4);
                     break;
 
-//                case 9:
-//                    BankSystem.showAccountType();
-//                    break;
-
                 case 9:
+                    System.out.println("Enter name to display: ");
+                    String acctName = scanner.nextLine();
+
+                    BankSystem.findAccountsByName(acctName);
+                    break;
+
+                case 10:
                     isRunning = false;
                     break;
                 default:

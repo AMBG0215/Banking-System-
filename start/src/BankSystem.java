@@ -68,6 +68,23 @@ public class BankSystem {
         }
     }
 
+    static void findAccountsByName(String name){
+        for (BankAccount listAccounts : accounts){
+           if(listAccounts.getName().toLowerCase().contains(name.toLowerCase())){
+               System.out.println(
+                   "Account Number: " + listAccounts.getNumber() + "\n" +
+                   "Name: " + listAccounts.getName() + "\n" +
+                   "Balance: " + listAccounts.getBalance() + "\n" +
+                   "Active: " + listAccounts.isActive()
+               );
+           }else{
+               System.out.println("Name is not available");
+           }
+        }
+    }
+
+
+
     static void showAccountType(){
         for (BankAccount listAccounts : accounts) {
             System.out.println(
