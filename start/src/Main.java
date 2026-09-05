@@ -2,6 +2,7 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -101,7 +102,8 @@ public class Main {
                     "7. Remove Account" + "\n" +
                     "8. Show Account" + "\n" +
                     "9. Find Account Name" + "\n" +
-                    "10. Exit"
+                    "10. Update Name" + "\n" +
+                    "11. Exit"
             );
 
 
@@ -238,6 +240,17 @@ public class Main {
                     break;
 
                 case 10:
+                    System.out.println("Enter account number: ");
+                    String acctNumber5 = scanner.nextLine();
+
+                    System.out.println("Enter new account name: ");
+                    String acctName2 = scanner.nextLine();
+
+                    BankSystem.updateName(acctNumber5, acctName2);
+
+                    break;
+
+                case 11:
                     isRunning = false;
                     break;
                 default:

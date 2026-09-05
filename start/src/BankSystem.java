@@ -32,6 +32,16 @@ public class BankSystem {
         }
 
     }
+    
+    static void updateName(String accountNumber, String name){
+        for (BankAccount listAccounts : accounts){
+            if (listAccounts.getNumber().equals(accountNumber)){
+                    listAccounts.setName(name);
+            }else{
+                System.out.println("No existing account");
+            }
+        }
+    }
 
     // create a method to show only one account
     static void displayAccount(String accountNumber){
@@ -114,7 +124,7 @@ public class BankSystem {
         BankAccount result = BankSystem.findAccounts(accountNumber);
 
         if (result != null){
-             System.out.println("Account found, " + amount + " deposited");
+//             System.out.println("Account found, " + amount + " deposited");
              result.deposit(amount);
         }else{
             System.out.println("Account not found");
@@ -126,7 +136,7 @@ public class BankSystem {
         BankAccount result = BankSystem.findAccounts(accountNumber);
 
         if (result!= null){
-            System.out.println("Account found, " + amount + " withdraw");
+//            System.out.println("Account found, " + amount + " withdraw");
             result.withdraw(amount);
         }else{
             System.out.println("Account not found");

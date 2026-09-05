@@ -29,6 +29,7 @@ public class BankAccount {
         System.out.println("Account Type: " + "Regular Account");
     }
 
+
      void deposit(int amount) {
         if (isActive) {
             if (amount > 0) {
