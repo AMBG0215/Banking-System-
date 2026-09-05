@@ -19,5 +19,11 @@ class StudentAccount extends BankAccount {
             }
         }
 
+        @Override
+        void withdraw(int amount){
+            System.out.println("Withdrawing from Student Account.. ");
+            super.withdraw(amount);
+        }
+
 
 }
