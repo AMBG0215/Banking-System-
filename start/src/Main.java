@@ -128,7 +128,8 @@ public class Main {
                         System.out.println(
                                 "Choose account type: " + "\n" +
                                 "1. Savings Account" + "\n" +
-                                "2. Regular Account"
+                                "2. Regular Account" + "\n" +
+                                "3. Student Account"
                         );
                         int accountType = scanner.nextInt();
                         scanner.nextLine();
@@ -136,9 +137,12 @@ public class Main {
                             if (accountType == 1){
                                 BankAccount account1 = new SavingsAccount(accountNumber, name, balance, true);
                                 BankSystem.addAccount(account1);
-                            }else if (accountType == 2){
+                            }else if (accountType == 2) {
                                 BankAccount account2 = new BankAccount(accountNumber, name, balance, true);
                                 BankSystem.addAccount(account2);
+                            }else if(accountType == 3){
+                                BankAccount account3 = new StudentAccount(accountNumber, name, balance, true);
+                                BankSystem.addAccount(account3);
                             }else{
                                 System.out.println("Invalid number");
                             }
