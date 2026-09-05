@@ -9,8 +9,15 @@ class StudentAccount extends BankAccount {
             System.out.println("Account Type: " + "Student Account");
         }
 
-
-
+        @Override
+        void deposit(int amount){
+            if (amount > 10000){
+                System.out.println("Cannot deposit, 10000 is the maximum");
+            }else{
+                System.out.println("Depositing from Student..");
+                super.deposit(amount);
+            }
+        }
 
 
 }
