@@ -4,6 +4,7 @@
 
 import java.sql.SQLOutput;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 // talks to the user
@@ -108,9 +109,16 @@ public class Main {
 
 
             Scanner scanner = new Scanner(System.in);
-            System.out.println("Enter your choice: ");
-            int choice = scanner.nextInt();
-            scanner.nextLine();
+            int choice = 0;
+            try {
+                System.out.println("Enter your choice: ");
+                choice = scanner.nextInt();
+                scanner.nextLine();
+
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a number.");
+            }
+
 
             switch (choice) {
                 case 1:

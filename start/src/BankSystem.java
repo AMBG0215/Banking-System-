@@ -34,10 +34,15 @@ public class BankSystem {
     }
     
     static void updateName(String accountNumber, String name){
+        boolean found = false;
+
         for (BankAccount listAccounts : accounts){
-            if (listAccounts.getNumber().equals(accountNumber)){
-                    listAccounts.setName(name);
-            }else{
+            if (listAccounts.getNumber().equals(accountNumber)) {
+                listAccounts.setName(name);
+                found = true;
+            }
+
+            if (!found){
                 System.out.println("No existing account");
             }
         }
