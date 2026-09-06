@@ -41,11 +41,12 @@ public class BankSystem {
                 listAccounts.setName(name);
                 found = true;
             }
-
-            if (!found){
-                System.out.println("No existing account");
-            }
         }
+
+        if (!found){
+            System.out.println("No existing account");
+        }
+
     }
 
     // create a method to show only one account
@@ -84,6 +85,8 @@ public class BankSystem {
     }
 
     static void findAccountsByName(String name){
+        boolean found = false;
+
         for (BankAccount listAccounts : accounts){
            if(listAccounts.getName().toLowerCase().contains(name.toLowerCase())){
                System.out.println(
@@ -92,9 +95,11 @@ public class BankSystem {
                    "Balance: " + listAccounts.getBalance() + "\n" +
                    "Active: " + listAccounts.isActive()
                );
-           }else{
-               System.out.println("Name is not available");
+               found = true;
            }
+        }
+        if(!found){
+            System.out.println("Name is not found");
         }
     }
 

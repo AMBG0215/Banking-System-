@@ -122,46 +122,67 @@ public class Main {
 
             switch (choice) {
                 case 1:
+
                     System.out.println("Enter account number: ");
                     String accountNumber = scanner.nextLine();
 
-                    BankAccount result1 = BankSystem.findAccounts(accountNumber);
+                    if(accountNumber.isEmpty()){
+                        System.out.println("Enter account number");
+                    }else{
 
-                    if(result1 == null)
-                    {
-                        System.out.println("Enter name: ");
-                        String name = scanner.nextLine();
+                        BankAccount result1 = BankSystem.findAccounts(accountNumber);
 
-                        System.out.println("Enter amount: ");
-                        float balance = scanner.nextFloat();
-                        scanner.nextLine();
+                        if(result1 == null) {
+                            System.out.println("Enter name: ");
+                            String name = scanner.nextLine();
 
-                        System.out.println(
-                                "Choose account type: " + "\n" +
-                                "1. Savings Account" + "\n" +
-                                "2. Regular Account" + "\n" +
-                                "3. Student Account"
-                        );
-                        int accountType = scanner.nextInt();
-                        scanner.nextLine();
+                            if (name.isEmpty()) {
+                                System.out.println("Enter a name");
+                            } else {
 
-                            if (accountType == 1){
-                                BankAccount account1 = new SavingsAccount(accountNumber, name, balance, true);
-                                BankSystem.addAccount(account1);
-                            }else if (accountType == 2) {
-                                BankAccount account2 = new BankAccount(accountNumber, name, balance, true);
-                                BankSystem.addAccount(account2);
-                            }else if(accountType == 3){
-                                BankAccount account3 = new StudentAccount(accountNumber, name, balance, true);
-                                BankSystem.addAccount(account3);
-                            }else{
-                                System.out.println("Invalid number");
+                                try{
+                                    System.out.println("Enter amount: ");
+                                    float balance = scanner.nextFloat();
+                                    scanner.nextLine();
+
+                                    if (balance > 0) {
+                                        System.out.println(
+                                                "Choose account type: " + "\n" +
+                                                        "1. Savings Account" + "\n" +
+                                                        "2. Regular Account" + "\n" +
+                                                        "3. Student Account"
+                                        );
+                                        int accountType = scanner.nextInt();
+                                        scanner.nextLine();
+
+                                        if (accountType == 1) {
+                                            BankAccount account1 = new SavingsAccount(accountNumber, name, balance, true);
+                                            BankSystem.addAccount(account1);
+                                        } else if (accountType == 2) {
+                                            BankAccount account2 = new BankAccount(accountNumber, name, balance, true);
+                                            BankSystem.addAccount(account2);
+                                        } else if (accountType == 3) {
+                                            BankAccount account3 = new StudentAccount(accountNumber, name, balance, true);
+                                            BankSystem.addAccount(account3);
+                                        } else {
+                                            System.out.println("Invalid number");
+                                        }
+                                    } else {
+                                        System.out.println("Invalid balance");
+                                    }
+                                }catch (InputMismatchException e){
+                                    System.out.println("Enter amount");
+                                }
+
                             }
+
+
 //                        BankAccount account = new BankAccount(accountNumber, name, balance, true);
 //                        BankSystem.addAccount(account);
 
-                    }else{
-                        System.out.println("Account number is already registered");
+                        }else{
+                            System.out.println("Account number is already registered");
+                        }
                     }
 
                    break;
