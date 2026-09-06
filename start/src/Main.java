@@ -104,7 +104,9 @@ public class Main {
                     "8. Show Account" + "\n" +
                     "9. Find Account Name" + "\n" +
                     "10. Update Name" + "\n" +
-                    "11. Exit"
+                    "11. Activate Account" + "\n" +
+                    "12. Deactivate Account" + "\n" +
+                    "13. Exit"
             );
 
 
@@ -154,7 +156,6 @@ public class Main {
                                         );
                                         int accountType = scanner.nextInt();
                                         scanner.nextLine();
-
                                         if (accountType == 1) {
                                             BankAccount account1 = new SavingsAccount(accountNumber, name, balance, true);
                                             BankSystem.addAccount(account1);
@@ -280,6 +281,15 @@ public class Main {
                     break;
 
                 case 11:
+                    System.out.println("Enter account number to activate: ");
+                    String acctNumber6 = scanner.nextLine();
+
+                    break;
+
+                case 12:
+                    break;
+
+                case 13:
                     isRunning = false;
                     break;
                 default:

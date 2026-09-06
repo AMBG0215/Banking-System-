@@ -146,7 +146,7 @@ public class BankSystem {
         BankAccount result = BankSystem.findAccounts(accountNumber);
 
         if (result!= null){
-//            System.out.println("Account found, " + amount + " withdraw");
+//           System.out.println("Account found, " + amount + " withdraw");
             result.withdraw(amount);
         }else{
             System.out.println("Account not found");
