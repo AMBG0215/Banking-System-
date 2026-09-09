@@ -103,6 +103,29 @@ public class BankSystem {
         }
     }
 
+    // fix the logic for activate account
+    static void activateAccount(String accountNumber){
+            BankAccount result = BankSystem.findAccounts(accountNumber);
+            boolean found = false;
+
+            if(result != null){
+                for (BankAccount listAccounts : accounts){
+                    if (listAccounts.getNumber() == accountNumber){
+                        System.out.println("Account activated");
+                        listAccounts.setActive(true);
+                    }
+                    found = true;
+                }
+                if(!found){
+                    System.out.println("Account is already activated.");
+                }
+            }else{
+                System.out.println("No Account found.");
+            }
+
+
+
+    }
 
 
     static void showAccountType(){

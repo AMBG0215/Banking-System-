@@ -284,6 +284,8 @@ public class Main {
                     System.out.println("Enter account number to activate: ");
                     String acctNumber6 = scanner.nextLine();
 
+                    BankSystem.activateAccount(acctNumber6);
+
                     break;
 
                 case 12:
