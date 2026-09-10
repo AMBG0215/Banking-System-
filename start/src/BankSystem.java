@@ -107,7 +107,6 @@ public class BankSystem {
     static void activateAccount(String accountNumber){
             BankAccount result = BankSystem.findAccounts(accountNumber);
             boolean found = false;
-            boolean isActivated = false;
 
             if(result != null){
                 for (BankAccount listAccounts : accounts){
@@ -133,7 +132,6 @@ public class BankSystem {
     static void deactivateAccount(String accountNumber){
         BankAccount result = BankSystem.findAccounts(accountNumber);
         boolean found = false;
-        boolean isActivated = false;
 
         if(result != null){
             for (BankAccount listAccounts : accounts){

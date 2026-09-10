@@ -292,6 +292,8 @@ public class Main {
                     System.out.println("Enter account number to deactivate: ");
                     String acctNumber7 = scanner.nextLine();
 
+                    BankSystem.deactivateAccount(acctNumber7);
+
                     break;
 
                 case 13:
