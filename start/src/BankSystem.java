@@ -6,6 +6,7 @@ public class BankSystem {
     // Arraylist stores Bank Account objects so, accounts = []
     private static ArrayList<BankAccount> accounts = new ArrayList<>();
     // Composition: one class has or uses objects from another class.
+    private static ArrayList<Transaction> transacts = new ArrayList<>();
 
     static void addAccount(BankAccount account){
           accounts.add(account);
@@ -190,6 +191,11 @@ public class BankSystem {
             System.out.println("Account not found");
         }
 
+    }
+
+    // Fix the transaction History logic 
+    static void transactionHistory(Transaction transact){
+            transacts.add(transact);
     }
 
     static void withdrawFromAccount(String accountNumber, int amount){

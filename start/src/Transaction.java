@@ -4,14 +4,19 @@ public class Transaction {
     private String transactionType;
     private float amount;
     private String date;
+    private BankAccount account;
 
-    Transaction(String transactionId, String transactionType, float amount, String date){
+    Transaction(String transactionId, String transactionType, float amount, String date, BankAccount account){
         this.transactionId = transactionId;
         this.transactionType = transactionType;
         this.amount = amount;
         this.date  = date;
+        this.account = account;
     }
 
+    public void showTransaction(){
+        System.out.println("Hello from transaction");
+    }
 
 
 

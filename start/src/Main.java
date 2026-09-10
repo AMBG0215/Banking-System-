@@ -106,7 +106,8 @@ public class Main {
                     "10. Update Name" + "\n" +
                     "11. Activate Account" + "\n" +
                     "12. Deactivate Account" + "\n" +
-                    "13. Exit"
+                    "13. Transaction " + "\n" +
+                    "14. Exit"
             );
 
 
@@ -297,15 +298,15 @@ public class Main {
                     break;
 
                 case 13:
+
+
+                case 14:
                     isRunning = false;
                     break;
                 default:
                     System.out.println("Invalid choice");
             }
         }
-
-
-
 
 
 
