@@ -289,6 +289,9 @@ public class Main {
                     break;
 
                 case 12:
+                    System.out.println("Enter account number to deactivate: ");
+                    String acctNumber7 = scanner.nextLine();
+
                     break;
 
                 case 13:

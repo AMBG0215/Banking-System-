@@ -107,12 +107,17 @@ public class BankSystem {
     static void activateAccount(String accountNumber){
             BankAccount result = BankSystem.findAccounts(accountNumber);
             boolean found = false;
+            boolean isActivated = false;
 
             if(result != null){
                 for (BankAccount listAccounts : accounts){
-                    if (listAccounts.getNumber() == accountNumber){
-                        System.out.println("Account activated");
-                        listAccounts.setActive(true);
+                    if (listAccounts.getNumber().equals(accountNumber)){
+                        if(listAccounts.isActive()){
+                            System.out.println("Account already active");
+                        }else{
+                            System.out.println("Account activated");
+                            listAccounts.setActive(true);
+                        }
                     }
                     found = true;
                 }
@@ -123,8 +128,31 @@ public class BankSystem {
                 System.out.println("No Account found.");
             }
 
+    }
 
+    static void deactivateAccount(String accountNumber){
+        BankAccount result = BankSystem.findAccounts(accountNumber);
+        boolean found = false;
+        boolean isActivated = false;
 
+        if(result != null){
+            for (BankAccount listAccounts : accounts){
+                if (listAccounts.getNumber().equals(accountNumber)){
+                    if(listAccounts.isActive()){
+                        System.out.println("Account deactivated");
+                        listAccounts.setActive(false);
+                    }else{
+                        System.out.println("Account is already deactivated");
+                    }
+                }
+                found = true;
+            }
+            if(!found){
+                System.out.println("Account is already deactivated.");
+            }
+        }else{
+            System.out.println("No Account found.");
+        }
     }
 
 
@@ -143,6 +171,7 @@ public class BankSystem {
             listAccounts.showAccountType();
 
             // Reference type: BankAccount
+
             // Actual object: SavingsAccount if new SavingsAcc()
             // Then when you add it to the list: BankSystem.addAccount(account1); the actual SavingsAccount object is stored in accounts.
             // Later: for (BankAccount listAccounts : accounts) Java gets the same object from the list.
