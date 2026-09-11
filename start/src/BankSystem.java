@@ -224,7 +224,8 @@ public class BankSystem {
 //             System.out.println("Account found, " + amount + " deposited");
              result.deposit(amount);
 
-                    // improve logic for transaction 
+                    // improve logic for transaction
+                    // ++counter (increment first = 1), counter++ (use first, then increment = 0) 
                     Transaction depositTransact = new Transaction("T00" + ++counter, "DEPOSIT", amount, "2026-09-11", result);
                         addTransaction(depositTransact);
 
