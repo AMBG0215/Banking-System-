@@ -35,16 +35,23 @@ public class BankSystem {
         transacts.add(transaction);
     }
 
-    static void showTransactions(){
-        for (Transaction transactList : transacts){
-            System.out.println("Transaction History: " + "\n" +
-                    transactList.getTransactionId()+ "\n" +
-                    transactList.getTransactionType() + "\n" +
-                    transactList.getAmount() + "\n" +
-                    transactList.getDate() + "\n" +
-                    transactList.getAccount().getBalance()
-            );
-        }
+    static void showTransactions(String accountNumber){
+        BankAccount result = BankSystem.findAccounts(accountNumber);
+            if(result != null){
+                for (Transaction transactList : transacts){
+                    if(transactList.getAccount().equals(result)){
+                        System.out.println("Transaction History: " + "\n" +
+                                transactList.getTransactionId()+ "\n" +
+                                transactList.getTransactionType() + "\n" +
+                                transactList.getAmount() + "\n" +
+                                transactList.getDate() + "\n" +
+                                transactList.getAccount().getBalance()
+                        );
+                    }
+                }
+            }else{
+                System.out.println("Account not found");
+            }
     }
 
     static BankAccount findAccounts(String accountNumber){
@@ -257,6 +264,10 @@ public class BankSystem {
         if (result!= null){
 //           System.out.println("Account found, " + amount + " withdraw");
             result.withdraw(amount);
+
+                Transaction withdrawTransact = new Transaction("T00" + ++counter, "WITHDRAW", amount, LocalDate.now(), result);
+                addTransaction(withdrawTransact);
+
         }else{
             System.out.println("Account not found");
         }

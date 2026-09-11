@@ -298,7 +298,11 @@ public class Main {
                     break;
 
                 case 13:
-                    BankSystem.showTransactions();
+                    System.out.println("Enter account number: ");
+                    String acctNumber8 = scanner.nextLine();
+
+                    BankSystem.showTransactions(acctNumber8);
+
                     break;
 
 
