@@ -36,12 +36,12 @@ public class BankSystem {
 
     static void showTransactions(){
         for (Transaction transactList : transacts){
-            System.out.println("Transaction: " +
-                    transactList.getTransactionId()+ " " +
-                    transactList.getTransactionType() + " " +
-                    transactList.getAmount() + " " +
-                    transactList.getDate() + " " +
-                    transactList.getAccount()
+            System.out.println("Transaction History: " + "\n" +
+                    transactList.getTransactionId()+ "\n" +
+                    transactList.getTransactionType() + "\n" +
+                    transactList.getAmount() + "\n" +
+                    transactList.getDate() + "\n" +
+                    transactList.getAccount().getBalance()
             );
         }
     }
@@ -221,6 +221,10 @@ public class BankSystem {
         if (result != null){
 //             System.out.println("Account found, " + amount + " deposited");
              result.deposit(amount);
+
+                    Transaction depositTransact = new Transaction("T001", "DEPOSIT", amount, "2026-09-11", result);
+                        addTransaction(depositTransact);
+
         }else{
             System.out.println("Account not found");
         }

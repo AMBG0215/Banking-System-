@@ -106,7 +106,7 @@ public class Main {
                     "10. Update Name" + "\n" +
                     "11. Activate Account" + "\n" +
                     "12. Deactivate Account" + "\n" +
-                    "13. Transaction " + "\n" +
+                    "13. Transaction History" + "\n" +
                     "14. Exit"
             );
 
@@ -298,6 +298,8 @@ public class Main {
                     break;
 
                 case 13:
+                    BankSystem.showTransactions();
+                    break;
 
 
                 case 14:
