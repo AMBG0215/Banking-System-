@@ -65,7 +65,7 @@ public class BankAccount {
     }
 
     void transfer(BankAccount recipient, int amount) {
-        if (this.isActive && recipient.isActive) {
+        if (this.isActive && recipient.isActive) { // means the isActive variable belonging to the current BankAccount object "This particular account"
             if (this.balance >= amount) {
                 this.balance -= amount;
                 recipient.balance += amount;
