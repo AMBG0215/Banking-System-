@@ -5,7 +5,12 @@ public class BankSystem {
 
     // Arraylist stores Bank Account objects so, accounts = []
     private static ArrayList<BankAccount> accounts = new ArrayList<>();
-    // Composition: one class has or uses objects from another class.
+    // Composition ("HAS-A" STRONG): one class has or uses objects from another class, and the child cannot exist without the parent.
+    // if the parent dies, the child dies too. Example: Bank account has a transaction history. You cannot have a transact history without an account tied to it.
+
+    // Aggregation ("HAS-A" WEAK): one class contains another, but both can exist independently.
+    // if the parent dies, the child can still exist. Example: if the system shuts down, the user's account and balance still exist in a database.
+
     private static ArrayList<Transaction> transacts = new ArrayList<>();
 
     static void addAccount(BankAccount account){
@@ -193,7 +198,7 @@ public class BankSystem {
 
     }
 
-    // Fix the transaction History logic 
+    // Fix the transaction History logic
     static void transactionHistory(Transaction transact){
             transacts.add(transact);
     }
