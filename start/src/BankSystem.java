@@ -1,5 +1,6 @@
 import org.w3c.dom.ls.LSOutput;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 
@@ -236,7 +237,7 @@ public class BankSystem {
                     // 2. Take/use the current value → 1
                     // 3. Print 1
 
-                    Transaction depositTransact = new Transaction("T00" + counter++, "DEPOSIT", amount, "2026-09-11", result);
+                    Transaction depositTransact = new Transaction("T00" + ++counter, "DEPOSIT", amount, LocalDate.now(), result);
                         addTransaction(depositTransact);
 
         }else{

@@ -1,9 +1,11 @@
+import java.time.LocalDate;
+
 public class Transaction {
 
     private String transactionId;
     private String transactionType;
     private float amount;
-    private String date;
+    private LocalDate date;
     private BankAccount account;
 
     // Bank account -- transaction
@@ -14,7 +16,7 @@ public class Transaction {
     // If the parent is destroyed, the child is also considered destroyed.
     // Example: A House has Rooms. If the House is destroyed,
     // the Rooms as parts of that House no longer exist.
-    public Transaction(String transactionId, String transactionType, float amount, String date, BankAccount account){
+    public Transaction(String transactionId, String transactionType, float amount, LocalDate date, BankAccount account){
         this.transactionId = transactionId;
         this.transactionType = transactionType;
         this.amount = amount;
@@ -36,7 +38,7 @@ public class Transaction {
         return amount;
     }
 
-    public String getDate(){
+    public LocalDate getDate() {
         return date;
     }
 
@@ -57,7 +59,7 @@ public class Transaction {
         this.amount = amount;
     }
 
-    public void setDate(String date){
+    public void setDate(LocalDate date){
         this.date = date;
     }
 
