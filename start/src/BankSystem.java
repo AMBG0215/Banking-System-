@@ -217,7 +217,6 @@ public class BankSystem {
     static int counter = 0;
     static void depositToAccount(String accountNumber, int amount){
 
-
         BankAccount result = BankSystem.findAccounts(accountNumber);
 
         if (result != null){
@@ -225,8 +224,19 @@ public class BankSystem {
              result.deposit(amount);
 
                     // improve logic for transaction
-                    // ++counter (increment first = 1), counter++ (use first, then increment = 0) 
-                    Transaction depositTransact = new Transaction("T00" + ++counter, "DEPOSIT", amount, "2026-09-11", result);
+                    // ++counter (increment first = 1), counter++ (use first, then increment = 0)
+
+                    // counter++
+                    //1. Take/use the current value → 0
+                    //2. Print 0
+                    //3. Increase counter → 1
+
+                    // ++counter
+                    // 1. Increase counter → 1
+                    // 2. Take/use the current value → 1
+                    // 3. Print 1
+
+                    Transaction depositTransact = new Transaction("T00" + counter++, "DEPOSIT", amount, "2026-09-11", result);
                         addTransaction(depositTransact);
 
         }else{
