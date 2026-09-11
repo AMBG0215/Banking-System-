@@ -214,15 +214,18 @@ public class BankSystem {
         }
     }
 
-
+    static int counter = 0;
     static void depositToAccount(String accountNumber, int amount){
+
+
         BankAccount result = BankSystem.findAccounts(accountNumber);
 
         if (result != null){
 //             System.out.println("Account found, " + amount + " deposited");
              result.deposit(amount);
 
-                    Transaction depositTransact = new Transaction("T001", "DEPOSIT", amount, "2026-09-11", result);
+                    // improve logic for transaction 
+                    Transaction depositTransact = new Transaction("T00" + ++counter, "DEPOSIT", amount, "2026-09-11", result);
                         addTransaction(depositTransact);
 
         }else{
