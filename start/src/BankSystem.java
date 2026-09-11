@@ -1,20 +1,49 @@
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.ArrayList;
+
+
+// BankSystem uses BankAccount
+// Association ("USES-A" / "KNOWS"):
+// One class uses or knows about another class.
+// It can receive a reference to another object or interact with it,
+// but it does not necessarily own that object.
+// The two objects can exist independently.
+
+// BankSystem has a bank account
+// Aggregation ("HAS-A" WEAK):
+// One class contains or uses another object, but both objects
+// can exist independently.
+// If the parent is destroyed, the child can still exist.
+// Example: A BankSystem has BankAccount objects.
+// The BankAccount can exist independently of the BankSystem.
 
 // Manages many bank accounts
 public class BankSystem {
 
+
     // Arraylist stores Bank Account objects so, accounts = []
     private static ArrayList<BankAccount> accounts = new ArrayList<>();
-    // Composition ("HAS-A" STRONG): one class has or uses objects from another class, and the child cannot exist without the parent.
-    // if the parent dies, the child dies too. Example: Bank account has a transaction history. You cannot have a transact history without an account tied to it.
-
-    // Aggregation ("HAS-A" WEAK): one class contains another, but both can exist independently.
-    // if the parent dies, the child can still exist. Example: if the system shuts down, the user's account and balance still exist in a database.
-
     private static ArrayList<Transaction> transacts = new ArrayList<>();
 
     static void addAccount(BankAccount account){
-          accounts.add(account);
+        accounts.add(account);
+    }
+
+    static void addTransaction(Transaction transaction){
+        transacts.add(transaction);
+    }
+
+    static void showTransactions(){
+        for (Transaction transactList : transacts){
+            System.out.println("Transaction: " +
+                    transactList.getTransactionId()+ " " +
+                    transactList.getTransactionType() + " " +
+                    transactList.getAmount() + " " +
+                    transactList.getDate() + " " +
+                    transactList.getAccount()
+            );
+        }
     }
 
     static BankAccount findAccounts(String accountNumber){

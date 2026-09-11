@@ -6,22 +6,21 @@ public class Transaction {
     private String date;
     private BankAccount account;
 
-    // Association ("uses/knows"): A class holds or receives a reference to another independent class.
-    // "IS-CONNECTED-TO" or "USES-A" relationship. One object simply talks to or uses another object, but doesn't store it as its own permanent part.
-    Transaction(String transactionId, String transactionType, float amount, String date, BankAccount account){
+    // Bank account -- transaction
+    // Composition = If you design BankAccount to own its transactions, the transactions are considered part of that account.
+    // Composition ("HAS-A" STRONG):
+    // One class owns another object, and the child object's lifecycle
+    // depends on the parent.
+    // If the parent is destroyed, the child is also considered destroyed.
+    // Example: A House has Rooms. If the House is destroyed,
+    // the Rooms as parts of that House no longer exist.
+    public Transaction(String transactionId, String transactionType, float amount, String date, BankAccount account){
         this.transactionId = transactionId;
         this.transactionType = transactionType;
         this.amount = amount;
         this.date  = date;
         this.account = account;
     }
-
-    public void showTransaction(){
-        System.out.println("Hello from transaction");
-    }
-
-
-
 
 
     // Getter
@@ -41,6 +40,10 @@ public class Transaction {
         return date;
     }
 
+    public BankAccount getAccount(){
+        return account;
+    }
+
     // Setter
     public void setTransactionId(String transactionId){
         this.transactionId = transactionId;
@@ -58,6 +61,9 @@ public class Transaction {
         this.date = date;
     }
 
+    public void setAccount(BankAccount account){
+        this.account = account;
+    }
 
 
 }
