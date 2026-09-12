@@ -127,6 +127,16 @@ public class BankSystem {
         }
     }
 
+    //Swing version
+     static String showsAcc(){
+        String result = "";
+        for (BankAccount listAccounts : accounts){
+            result += "Account Number: " + listAccounts.getNumber() + "\n" + "Account Name: " +listAccounts.getName() + "\n" + "Balance: " + listAccounts.getBalance() + "\n" + "Active: " + listAccounts.isActive() + "\n";
+        }
+
+        return result;
+    }
+
     static void findAccountsByName(String name){
         boolean found = false;
 

@@ -21,6 +21,11 @@ public class Car {
 
             System.out.println(car1.brand + car1.isRunning + "\n");
             System.out.println(car2.brand + car2.isRunning);
+
+            int count = 0;
+
+          System.out.println(++count);
+//          System.out.println(++count);
       }
 }
 
