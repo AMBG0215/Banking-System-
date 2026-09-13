@@ -17,6 +17,7 @@ public class BankGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JOptionPane option = new JOptionPane();
+
                 boolean running = true;
 
                 String acctNum = JOptionPane.showInputDialog("Account Number");
@@ -26,7 +27,6 @@ public class BankGUI {
                 }
 
                 while (running) {
-
                     while (acctNum.isEmpty()) {
                         JOptionPane.showMessageDialog(frame, "Enter account number");
                         acctNum = JOptionPane.showInputDialog("Account Number");
@@ -38,69 +38,89 @@ public class BankGUI {
                     if (result1 == null) {
                         String acctName = JOptionPane.showInputDialog("Account Name");
 
-                        while (acctName.isEmpty()) {
-                            JOptionPane.showMessageDialog(frame, "Account name");
-                            acctName = JOptionPane.showInputDialog("Account name");
-                            System.out.println(acctName);
+                        if(acctName == null){
+                            running = false;
                         }
 
-                        String balanceInput = JOptionPane.showInputDialog("Account Balance");
+                            while (acctName != null && acctName.isEmpty()) {
+                                JOptionPane.showMessageDialog(frame, "Account name");
+                                acctName = JOptionPane.showInputDialog("Account name");
+                                System.out.println(acctName);
 
-                        while (balanceInput.isEmpty()) {
-                            JOptionPane.showMessageDialog(frame, "Enter Account Balance");
-                            balanceInput = JOptionPane.showInputDialog("Account balance");
-                            System.out.println(balanceInput);
-                        }
-
-                        float acctBal = Float.parseFloat(balanceInput);
-
-                        String[] acctTypes = {
-                                "Savings Account",
-                                "Regular Account",
-                                "Student Account"
-                        };
-
-                        if (acctBal > 0) {
-                            int accType = JOptionPane.showOptionDialog(
-                                    frame,
-                                    "Choose Account type",
-                                    "Account type",
-                                    JOptionPane.DEFAULT_OPTION,
-                                    JOptionPane.QUESTION_MESSAGE,
-                                    null,
-                                    acctTypes,
-                                    acctTypes[0]
-                            );
-
-                            switch (accType) {
-                                case 0:
-                                    BankAccount savingsAcc = new SavingsAccount(acctNum, acctName, acctBal, true);
-                                    BankSystem.addAccount(savingsAcc);
-                                    System.out.println(savingsAcc);
+                                if(acctName == null){
                                     running = false;
+                                }
 
-                                    break;
-                                case 1:
-                                    BankAccount regularAcc = new BankAccount(acctNum, acctName, acctBal, true);
-                                    BankSystem.addAccount(regularAcc);
-                                    System.out.println(regularAcc);
+                            }
+
+                            if (acctName != null){
+                                String balanceInput = JOptionPane.showInputDialog("Account Balance");
+
+                                if(balanceInput == null){
                                     running = false;
+                                }
 
-                                    break;
-                                case 2:
-                                    BankAccount studentAcc = new StudentAccount(acctNum, acctName, acctBal, true);
-                                    BankSystem.addAccount(studentAcc);
-                                    System.out.println(studentAcc);
-                                    running = false;
+                                while (balanceInput.isEmpty()) {
+                                    JOptionPane.showMessageDialog(frame, "Enter Account Balance");
+                                    balanceInput = JOptionPane.showInputDialog("Account balance");
+                                    System.out.println(balanceInput);
+                                }
 
-                                    break;
-                                default:
-                                    JOptionPane.showMessageDialog(frame, "Invalid option");
-                                    break;
+                                float acctBal = Float.parseFloat(balanceInput);
+
+                                String[] acctTypes = {
+                                        "Savings Account",
+                                        "Regular Account",
+                                        "Student Account"
+                                };
+
+                                if (acctBal > 0) {
+                                    int accType = JOptionPane.showOptionDialog(
+                                            frame,
+                                            "Choose Account type",
+                                            "Account type",
+                                            JOptionPane.DEFAULT_OPTION,
+                                            JOptionPane.QUESTION_MESSAGE,
+                                            null,
+                                            acctTypes,
+                                            acctTypes[0]
+                                    );
+
+                                    switch (accType) {
+                                        case 0:
+                                            BankAccount savingsAcc = new SavingsAccount(acctNum, acctName, acctBal, true);
+                                            BankSystem.addAccount(savingsAcc);
+                                            System.out.println(savingsAcc);
+                                            running = false;
+
+                                            break;
+                                        case 1:
+                                            BankAccount regularAcc = new BankAccount(acctNum, acctName, acctBal, true);
+                                            BankSystem.addAccount(regularAcc);
+                                            System.out.println(regularAcc);
+                                            running = false;
+
+                                            break;
+                                        case 2:
+                                            BankAccount studentAcc = new StudentAccount(acctNum, acctName, acctBal, true);
+                                            BankSystem.addAccount(studentAcc);
+                                            System.out.println(studentAcc);
+                                            running = false;
+
+                                            break;
+                                        default:
+                                            JOptionPane.showMessageDialog(frame, "Invalid option");
+                                            break;
 
 
+                                    }
                                 }
                             }
+
+                        }else{
+                        JOptionPane.showMessageDialog(frame, "There is an Existing Account");
+                        acctNum = JOptionPane.showInputDialog("Enter account number");
+                        System.out.println(acctNum);
                         }
                     }
                 }
