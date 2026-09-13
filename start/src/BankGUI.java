@@ -20,53 +20,87 @@ public class BankGUI {
 
                 boolean running = true;
 
+                // Enter account number
                 String acctNum = JOptionPane.showInputDialog("Account Number");
 
+                // Did the user enter account number?
+                // YES - stop the program from running
                 if(acctNum == null){
                     running = false;
                 }
 
+                // NO - CONTINUE
                 while (running) {
+
+                    // is account number empty?
+                    // YES - Ask to prompt again
                     while (acctNum.isEmpty()) {
                         JOptionPane.showMessageDialog(frame, "Enter account number");
                         acctNum = JOptionPane.showInputDialog("Account Number");
                         System.out.println(acctNum);
                     }
 
+                    // NO - Check existing account number
                     BankAccount result1 = BankSystem.findAccounts((acctNum));
 
+                    // Is there an existing account number?
+                    // NO - Get account name
                     if (result1 == null) {
                         String acctName = JOptionPane.showInputDialog("Account Name");
 
+                        // Did the user enter account name?
+
+                        // NO - stop the program from running
                         if(acctName == null){
                             running = false;
                         }
 
+                        // YES - CONTINUE
+
+                        // Is the account name empty?
+                        // YES - ask to prompt again
+                                // Did the user pressed cancel?
+                                // NO - check if empty and ask to prompt
                             while (acctName != null && acctName.isEmpty()) {
                                 JOptionPane.showMessageDialog(frame, "Account name");
                                 acctName = JOptionPane.showInputDialog("Account name");
                                 System.out.println(acctName);
 
+                                // YES - stop the program from running
                                 if(acctName == null){
                                     running = false;
                                 }
 
                             }
 
+                        // NO - Get account balance
                             if (acctName != null){
                                 String balanceInput = JOptionPane.showInputDialog("Account Balance");
 
+                                // Did the user pressed cancel?
+                                // YES - stop the program from running
                                 if(balanceInput == null){
                                     running = false;
                                 }
 
-                                while (balanceInput.isEmpty()) {
+                                // NO - check if empty and ask to prompt
+                                     // Did the user pressed cancel?
+                                     // NO - check if empty and ask to prompt
+                                while (balanceInput != null && balanceInput.isEmpty()) {
                                     JOptionPane.showMessageDialog(frame, "Enter Account Balance");
                                     balanceInput = JOptionPane.showInputDialog("Account balance");
                                     System.out.println(balanceInput);
+
+                                    // YES - stop the program from running
+                                    if (balanceInput == null){
+                                        running = false;
+                                    }
                                 }
 
-                                float acctBal = Float.parseFloat(balanceInput);
+                                // does the amount balance have input?
+                                // YES - convert it to float
+                                if (balanceInput != null){
+                                    float acctBal = Float.parseFloat(balanceInput);
 
                                 String[] acctTypes = {
                                         "Savings Account",
@@ -109,14 +143,15 @@ public class BankGUI {
 
                                             break;
                                         default:
-                                            JOptionPane.showMessageDialog(frame, "Invalid option");
+                                            JOptionPane.showMessageDialog(frame, "Choose account type");
                                             break;
 
-
+                                        }
                                     }
                                 }
                             }
 
+                            // YES - there is an existing account, enter to prompt again.
                         }else{
                         JOptionPane.showMessageDialog(frame, "There is an Existing Account");
                         acctNum = JOptionPane.showInputDialog("Enter account number");
